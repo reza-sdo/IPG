@@ -102,6 +102,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .nav .nav-ul li {
     list-style: none;
+
 }
 .nav-li {
     text-decoration: none;
@@ -115,6 +116,16 @@ input[type=number]::-webkit-inner-spin-button {
     font-weight: 400;
     color: var(--form-text);
     font-size: .8rem;
+    transition: all 0.15s linear;
+}
+.nav-li:hover{
+    color: #fff;
+    background-color: #4d9e39bd;
+    border-color: #4d9e39bd;
+}
+.nav-li:active{
+    background-color: #3c7a2f;
+    border-color: #3c7a2f;
 }
 
 main{
@@ -235,9 +246,8 @@ aside{
 .cardSaves{
     position: absolute;
     background-color: #ffffff;
-    width: 400px;
+    width: 420px;
     height: 50px;
-    right: 100px;
     border-radius: 10px;
     margin-top: 10px;
     overflow-y: scroll;
@@ -540,22 +550,36 @@ footer{
 .btns .pay{
     padding: 0 50px;
     font-weight: 500;
+    transition: all 0.15s linear
 }
 .btns .pay:hover{
     color: #fff;
+    background-color: #4d9e39bd;
+    border-color: #479e31cc;
+}
+.btns .pay:active{
     background-color: var(--green);
     border-color: var(--green);
-    
 }
+
+
+
+
+
+
 .btns .cancell {
     padding: 0 25px;
+    transition: all 0.15s linear
 }
 .btns .cancell:hover{
     color: #fff;
-    background-color:#FF605C;
-    border-color: #FF605C;
+    background-color:#ff6f6dcb;
+    border-color: #ff6f6dcb;
 }
-
+.btns .cancell:active{
+    background-color:#fd504d;
+    border-color: #fd504d;
+}
 .timer .timer-s{
     background-color: var(--green);
     color: var(--in-active);
@@ -585,7 +609,9 @@ footer{
     background-color: var(--green);
     color: var(--in-active);
 }
-
+.activebtns:hover{
+    background-color: var(--green);
+}
 .active-container {
     display: block !important;
 }
@@ -658,7 +684,7 @@ footer{
         
     }
     main{
-        padding: 15px;
+        padding: 10px;
         border-radius: 5px;
         font-size: .8rem;
     }
@@ -701,6 +727,9 @@ footer{
         
     }
     .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cardSaves{
         width: var(--big-input-size-in-769);
     }
     .cvv-ex{
@@ -796,9 +825,6 @@ footer{
     .nav{
         order: 2;
         width: 100%;
-        
-
-       
     }
     .logo{
         width: 65%;
@@ -855,6 +881,10 @@ footer{
         
     }
     .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cardSaves{
+        
         width: var(--big-input-size-in-769);
     }
     .cvv-ex{
@@ -1012,6 +1042,9 @@ footer{
         
     }
     .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cardSaves{
         width: var(--big-input-size-in-769);
     }
     .cvv-ex{
@@ -1196,7 +1229,7 @@ footer{
     .card-show , .line-side{
         display: none;
     }
-    
+   
 }
 
 
@@ -1229,6 +1262,9 @@ footer{
     .card-um input{
         width: var(--big-input-size-in-769);
         
+    }
+    .cardSaves{
+        width: var(--big-input-size-in-769);
     }
     .cvv input{
         width: var(--medium-input-size-in-769);
