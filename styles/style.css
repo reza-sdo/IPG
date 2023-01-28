@@ -697,15 +697,12 @@ footer{
         order: 0;
         width: 90%;
         height: auto;
-        /* padding: 10px 0; */
         border-radius: 5px;
     }
     table td{
         display: inline-block;
         margin:3px;
         font-size: .8rem;
-        font-weight: 600;
-        
     }
     .card-info{
         order: 1;
@@ -728,6 +725,9 @@ footer{
     }
     .card-um input{
         width: var(--big-input-size-in-769);
+    }
+    .inputDiv img{
+        right: 200px;  
     }
     .cardSaves{
         width: var(--big-input-size-in-769);
@@ -882,6 +882,9 @@ footer{
     }
     .card-um input{
         width: var(--big-input-size-in-769);
+    }
+    .inputDiv img{
+        right: 200px;  
     }
     .cardSaves{
         
@@ -1043,6 +1046,9 @@ footer{
     }
     .card-um input{
         width: var(--big-input-size-in-769);
+    }
+    .inputDiv img{
+        right: 200px;  
     }
     .cardSaves{
         width: var(--big-input-size-in-769);
@@ -1262,6 +1268,9 @@ footer{
     .card-um input{
         width: var(--big-input-size-in-769);
         
+    }
+    .inputDiv img{
+        right: 200px;  
     }
     .cardSaves{
         width: var(--big-input-size-in-769);
