@@ -1,0 +1,1303 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+@font-face {
+    font-family: "parastoo";
+    src: url(../font/IRANSANS/IRAN\ Sans\ Light.ttf);
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --in-active:#fff;
+    --green:#4C9E3A;
+    --form-text:#1E1E1E;
+    --text:#707070;
+    --place-holders:#D5D5D5;
+    --shadow-color:#44683B;
+    --line-colors:#557E4B;
+    --big-input-size-in-769 : 320px;
+    --medium-input-size-in-769 : 140px;
+    --small-input-size-in-769:70px;
+}
+
+* {
+    box-sizing: border-box ;
+    margin: 0;
+    padding: 0;
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+input{
+    text-align: center;
+    direction: ltr;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    height: 45px;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+input:focus{
+    outline: 1px solid rgba(184, 184, 184, 0.933)
+}
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'parastoo', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color:#F9F9F9 ;
+    
+    
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+.container{
+    width: 1110px;
+    margin: auto;
+}
+
+.header-h{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo-shaparak img{
+    
+    width: 133px;
+}
+
+
+
+
+.logo-keshavarzi img{
+    height: 108px;
+    
+    
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    
+    
+}
+.nav .nav-ul {
+    display: flex;
+    
+}
+.nav .nav-ul li {
+    list-style: none;
+}
+.nav-li {
+    text-decoration: none;
+    display:block;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    text-align: center;
+    margin: 5px;
+    padding: 0 20px;
+    border-radius: 10px;
+    line-height: 50px;
+    font-weight: 400;
+    color: var(--form-text);
+    font-size: .8rem;
+}
+
+main{
+    background-color: #FDFDFD;
+    padding: 30px 8%;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    border-radius: 10px;
+}
+.main-main{
+    display: flex;
+    justify-content: space-between;
+    /* display: none; */
+}
+
+.done{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+}
+.done h2{
+    margin: 50px 0;
+}
+.msvg{
+    width: 100px;
+    margin-top: 30px;
+}
+
+.card-show {
+    background-color: rgba(158, 195, 252, 0.26);
+    width: 240px;
+    height: 148px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.card-show img{
+    width: 40px;
+    height: 50px;
+    align-self: flex-end;
+    margin: 10px;
+    
+    
+}
+.card-num-show{
+    align-self: center;
+    margin: 8px 0;
+}
+.ex-card-show{
+    margin: 0 20px;
+}
+aside{
+    background: linear-gradient(231deg, rgba(225,238,255,1) 8%, rgba(254,254,254,1) 93%);
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+}
+.line-side{
+    background-color: #4C9E3A;
+    width: 60%;
+    height: 3px;
+    border-radius: 100px;
+}
+.card-info{
+    width: auto;
+    margin-left: 10px;
+    display: none;
+}
+
+
+.cardnumText{
+    display: flex; 
+    justify-content: space-between
+}
+.card-um input{
+    width: 420px;
+    display: block;
+    position: absolute;
+}
+.card-um input::placeholder{
+    color: rgba(128, 128, 128, 0.37);
+    word-spacing: 4px;
+}
+.cardNumError{
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: red;
+    display: none;
+}
+.inputDiv span{
+    position: relative ;
+    font-size: 1.1rem;
+    padding: 5px;
+    cursor: pointer ;
+    color: var(--green);
+}
+#showSaveCard{
+    margin-right: 10px;
+}
+.inputDiv img{
+    height: 30px;
+    width: 24px;
+    right: 300px;
+    top: 8px;
+    
+}
+
+.cardSaves{
+    position: absolute;
+    background-color: #ffffff;
+    width: 400px;
+    height: 50px;
+    right: 100px;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    display: none;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+}
+.cvv-ex{
+    display: flex;
+    margin-top: 30px;
+}
+.cvv2-Error{
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: red;
+    margin-right: 60px;
+    display: none;
+}
+
+.cvv input{
+    margin-left: 25px;
+}
+.ex input{
+    width: 80px;
+}
+.ex input::placeholder{
+    text-align: center;
+    font-weight: 400;
+}
+.ex-text{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.ex-error{
+    font-size: .6rem;
+    color: red;
+    display: none;
+}
+.ex span{
+    margin: 0 3px;
+    font-weight: 600;
+}
+.captcha{
+    margin: 20px 0;
+    /* background-color: #4C9E3A; */
+}
+.capt{
+    display: flex;
+    /* background-color: #4C9E3A; */
+}
+.captText{
+    display: flex;
+}
+.capt-error{
+    font-size: .6rem;
+    color: red;
+    margin-right: 50px;
+    display: none ;
+}
+.capt span{
+    padding: 10px;
+    color: var(--green);
+    cursor: pointer;
+}
+.capt img{
+    width: 150px;
+    margin-right: 18px;
+}
+.passText{
+    display: flex;
+}
+.passError{
+    font-size: .6rem;
+    color: red;
+    margin-right: 30px;
+    display: none;
+}
+.code-2ver{
+    color: var(--form-text);
+    padding: 10px 30px;
+    font-weight: 400;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    margin-right: 40px;
+    font-family: inherit;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    width: 170px;
+    cursor: pointer;
+}
+.phone-email{
+    display: flex;
+    margin: 20px 0;
+
+}
+.email{
+    margin-left: 15px;
+}
+
+.phone-error{
+    font-size: .6rem;
+    color: red;
+    margin-right: 15px;
+    display: none ;
+}
+.phone input{
+    width: 200px;
+}
+
+.save-card{
+    display: flex;
+}
+.save-card-text{
+    margin-right: 10px;
+}
+.checkbox-wrapper-12 {
+    position: relative;
+  }
+  .checkbox-wrapper-12 > svg {
+    position: absolute;
+    top: -130%;
+    left: -170%;
+    width: 110px;
+    pointer-events: none;
+  }
+  .checkbox-wrapper-12 * {
+    box-sizing: border-box;
+  }
+  .checkbox-wrapper-12 input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    margin: 0;
+  }
+  .checkbox-wrapper-12 input[type="checkbox"]:focus {
+    outline: 0;
+  }
+  .checkbox-wrapper-12 .cbx {
+    width: 24px;
+    height: 24px;
+    top: calc(50vh - 12px);
+    left: calc(50vw - 12px);
+  }
+  .checkbox-wrapper-12 .cbx input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #bfbfc0;
+    border-radius: 50%;
+  }
+  .checkbox-wrapper-12 .cbx label {
+    width: 24px;
+    height: 24px;
+    background: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-filter: url("#goo-12");
+    filter: url("#goo-12");
+    transform: trasnlate3d(0, 0, 0);
+    pointer-events: none;
+  }
+  .checkbox-wrapper-12 .cbx svg {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .checkbox-wrapper-12 .cbx svg path {
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 19;
+    stroke-dashoffset: 19;
+    transition: stroke-dashoffset 0.3s ease;
+    transition-delay: 0.2s;
+  }
+  .checkbox-wrapper-12 .cbx input:checked + label {
+    animation: splash-12 0.6s ease forwards;
+  }
+  .checkbox-wrapper-12 .cbx input:checked + label + svg path {
+    stroke-dashoffset: 0;
+  }
+  @-moz-keyframes splash-12 {
+    40% {
+      background: var(--green);
+      box-shadow: 0 -18px 0 -8px var(--green), 16px -8px 0 -8px var(--green), 16px 8px 0 -8px var(--green), 0 18px 0 -8px var(--green), -16px 8px 0 -8px var(--green), -16px -8px 0 -8px var(--green);
+    }
+    100% {
+      background: var(--green);
+      box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+    }
+  }
+  @-webkit-keyframes splash-12 {
+    40% {
+      background: var(--green);
+      box-shadow: 0 -18px 0 -8px var(--green), 16px -8px 0 -8px var(--green), 16px 8px 0 -8px var(--green), 0 18px 0 -8px var(--green), -16px 8px 0 -8px var(--green), -16px -8px 0 -8px var(--green);
+    }
+    100% {
+      background:var(--green);
+      box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+    }
+  }
+  @-o-keyframes splash-12 {
+    40% {
+      background:var(--green);
+      box-shadow: 0 -18px 0 -8px var(--green), 16px -8px 0 -8px var(--green), 16px 8px 0 -8px var(--green), 0 18px 0 -8px var(--green), -16px 8px 0 -8px var(--green), -16px -8px 0 -8px var(--green);
+    }
+    100% {
+      background: var(--green);
+      box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+    }
+  }
+  @keyframes splash-12 {
+    40% {
+      background: var(--green);
+      box-shadow: 0 -18px 0 -8px var(--green), 16px -8px 0 -8px var(--green), 16px 8px 0 -8px var(--green), 0 18px 0 -8px var(--green), -16px 8px 0 -8px var(--green), -16px -8px 0 -8px var(--green);
+    }
+    100% {
+      background: var(--green);
+      box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+    }
+  }
+
+
+
+.line-main{
+    background-color: #E8E44F;
+    width: 80%;
+    height: 3px;
+    border-radius: 100px;
+    margin:30px auto;
+}
+.line-main-1{
+    width: 50%;
+    height: 3px;
+    background-color: #4C9E3A;
+    z-index: 1000;
+    
+}
+footer{
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    width: 100%;
+    height: 130px;
+    background-color: #F6F6F6;
+    position: sticky;
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+    margin-top: 30px;
+}
+.footer-elements{
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.footer-continue{
+    
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.footer-continue button{
+    font-family: inherit;
+    margin:  0 auto;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    background-color: var(--green);
+    border-radius: 10px;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    
+}
+.btns-timer{
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    user-select: none;
+}
+.btns-timer .btns button{
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 20px;
+    font-family: inherit;
+    border: 1px solid var(--shadow-color);
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    background-color: #fff;
+    
+}
+
+.btns .pay{
+    padding: 0 50px;
+    font-weight: 500;
+}
+.btns .pay:hover{
+    color: #fff;
+    background-color: var(--green);
+    border-color: var(--green);
+    
+}
+.btns .cancell {
+    padding: 0 25px;
+}
+.btns .cancell:hover{
+    color: #fff;
+    background-color:#FF605C;
+    border-color: #FF605C;
+}
+
+.timer .timer-s{
+    background-color: var(--green);
+    color: var(--in-active);
+    font-weight: 400;
+    font-family: inherit;
+    display: inline-block;
+    width: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+.price-content{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text-for-price{
+    font-size: .8em;
+    color: #707070;
+
+}
+
+
+.activebtns{
+    background-color: var(--green);
+    color: var(--in-active);
+}
+
+.active-container {
+    display: block !important;
+}
+
+
+
+.crypto-info{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    
+}
+.qrCode{
+    margin-bottom: 100px;
+}
+.mobile-bank{
+    display: none;
+}
+@media (max-width: 480px){
+    .container{
+        width: 90%;
+    }
+    .nav-logo{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav{
+        order: 2;
+        width: 100%;
+    }
+    .logo{
+        width: 65%;
+        justify-content: space-between;
+    }
+    .logo-shaparak{
+        width: 35%;
+       
+    }
+    .logo-text{
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-ul{
+        flex-direction: column;
+    }
+    .nav-li{
+        font-size: .7rem;
+        line-height: 20px;
+        margin: 3px;
+    }
+    .logo-keshavarzi img{
+        height:90px;
+    }
+    .logo-shaparak img{
+        width: 90px;
+    }
+    header{
+        font-size: .7rem;
+    }
+    .nav-li{
+        border-radius: 5px;
+        height: 30px;
+        line-height: 30px;
+        
+    }
+    main{
+        padding: 15px;
+        border-radius: 5px;
+        font-size: .8rem;
+    }
+    .main-main{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    aside{
+        order: 0;
+        width: 90%;
+        height: auto;
+        /* padding: 10px 0; */
+        border-radius: 5px;
+    }
+    table td{
+        display: inline-block;
+        margin:3px;
+        font-size: .8rem;
+        font-weight: 600;
+        
+    }
+    .card-info{
+        order: 1;
+        margin-top: 20px;
+    }
+    .crypto-info{
+        order: 1;
+    }
+    .mobile-bank{
+        order: 1;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    .main-main input{
+        height: 40px;
+        border-radius: 5px;
+        
+        
+    }
+    .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cvv-ex{
+        margin: 10px 0;
+    }
+    .cvv input{
+        width: var(--medium-input-size-in-769);
+        margin-left: 20px;
+    }
+    .ex input{
+        width: 70px;
+    }
+    .ex input::placeholder{
+        text-align: center;
+        font-weight: 400;
+        font-size: .8rem;
+    }
+    .captcha{
+        margin: 0;
+    }
+    .captcha-input{
+        width: var(--medium-input-size-in-769);
+        
+    }
+    
+    .capt img{
+        width: 120px;
+    }
+    #passwordInput{
+        width: 160px;
+    }
+    .code-2ver{
+        padding: 10px 30px;
+        font-size: .8rem;
+        margin-right: 20px;
+        width: 140px;
+        height: 40px;
+    }
+    .phone-email{
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    .email input{
+        margin-bottom: 10px;
+        width: var(--big-input-size-in-769);
+    }
+    .phone input {
+        width: var(--big-input-size-in-769);
+    }
+    footer{
+        font-size: .9rem;
+        height: 100px;
+    }
+    .btns-timer{
+        margin-top: 10px;
+    }
+    .price-content{
+        margin-top: 10px;
+    }
+    .btns-timer .btns button{
+        height: 40px;
+        margin-left: 5px;
+        font-size: .8rem;
+        
+    }
+    .price-content{
+        flex-direction: row;justify-content: space-between;
+        width: 60%;
+    }
+    
+    .btns .pay{
+        padding: 0 30px;
+    }
+    .btns .cancell {
+        padding: 0 10px;
+    }
+    .footer-elements{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width: 480.0001px)and (max-width:501px){
+    .container{
+        width: 90%;
+    }
+    .nav-logo{
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        
+    }
+    .nav{
+        order: 2;
+        width: 100%;
+        
+
+       
+    }
+    .logo{
+        width: 65%;
+        justify-content: space-between;
+    }
+    .logo-shaparak{
+        width: 35%;
+       
+    }
+    .logo-text{
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .nav-ul{
+        flex-direction: column;
+    }
+    .nav-li{
+        font-size: .7rem;
+        line-height: 20px;
+        margin: 3px;
+        
+    }
+    .logo-keshavarzi img{
+        height:90px;
+    }
+    .logo-shaparak img{
+        width: 90px;
+    }
+    header{
+        font-size: .7rem;
+    }
+    .nav-li{
+        border-radius: 5px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .main-main{
+        flex-direction: column;
+        
+        align-items: center;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    .main-main input{
+        height: 40px;
+        border-radius: 5px;
+        
+        
+    }
+    .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cvv-ex{
+        margin: 10px 0;
+    }
+    .cvv input{
+        width: var(--medium-input-size-in-769);
+        margin-left: 20px;
+    }
+    .ex input{
+        width: 70px;
+    }
+    .ex input::placeholder{
+        text-align: center;
+        font-weight: 400;
+        font-size: .8rem;
+    }
+    .captcha{
+        margin: 0;
+    }
+    .captcha-input{
+        width: var(--medium-input-size-in-769);
+        
+    }
+    
+    .capt img{
+        width: 120px;
+    }
+    #passwordInput{
+        width: 160px;
+    }
+    .code-2ver{
+        padding: 10px 30px;
+        font-size: .8rem;
+        margin-right: 20px;
+        width: 140px;
+        height: 40px;
+    }
+    .phone-email{
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    .email input{
+        margin-bottom: 10px;
+        width: var(--big-input-size-in-769);
+    }
+    .phone input {
+        width: var(--big-input-size-in-769);
+    }
+    aside{
+        order: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
+    table td{
+        display: inline-block;
+        margin:5px;
+        font-size: .9rem;
+        font-weight: 500;
+        
+    }
+    .card-info{
+        order: 1;
+        margin-top: 20px;
+    }
+    .crypto-info{
+        order: 1;
+    }
+    .mobile-bank{
+        order: 1;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    footer{
+        font-size: .9rem;
+        height: 100px;
+    }
+    .btns-timer{
+        margin-top: 10px;
+    }
+    .price-content{
+        margin-top: 10px;
+    }
+    .btns-timer .btns button{
+        height: 40px;
+        margin-left: 5px;
+        font-size: .8rem;
+        
+    }
+    .price-content{
+        flex-direction: row;justify-content: space-between;
+        width: 60%;
+    }
+    
+    .btns .pay{
+        padding: 0 30px;
+    }
+    .btns .cancell {
+        padding: 0 10px;
+    }
+    .footer-elements{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width: 500.001px)and (max-width:630px){
+    .container{
+        width: 90%;
+    }
+
+    .nav-ul{
+        flex-direction: column;
+    }
+    .nav-li{
+        font-size: .7rem;
+        line-height: 20px;
+        
+    }
+    .logo-keshavarzi img{
+        height:50px;
+    }
+    .logo-shaparak img{
+        width: 60px;
+    }
+    header{
+        font-size: .7rem;
+    }
+    .nav-li{
+        border-radius: 5px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .logo-shaparak img{
+        width: 90px;
+    }
+    .logo-keshavarzi img{
+        height:70px;
+    }
+    .main-main{
+        flex-direction: column;
+        
+        align-items: center;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    .main-main input{
+        height: 40px;
+        border-radius: 5px;
+        
+        
+    }
+    .card-um input{
+        width: var(--big-input-size-in-769);
+    }
+    .cvv-ex{
+        margin: 10px 0;
+    }
+    .cvv input{
+        width: var(--medium-input-size-in-769);
+        margin-left: 20px;
+    }
+    .ex input{
+        width: 70px;
+    }
+    .ex input::placeholder{
+        text-align: center;
+        font-weight: 400;
+        font-size: .8rem;
+    }
+    .captcha{
+        margin: 0;
+    }
+    .captcha-input{
+        width: var(--medium-input-size-in-769);
+        
+    }
+    
+    .capt img{
+        width: 120px;
+    }
+    #passwordInput{
+        width: 160px;
+    }
+    .code-2ver{
+        padding: 10px 30px;
+        font-size: .8rem;
+        margin-right: 20px;
+        width: 140px;
+        height: 40px;
+    }
+    .phone-email{
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    .email input{
+        margin-bottom: 10px;
+        width: var(--big-input-size-in-769);
+    }
+    .phone input {
+        width: var(--big-input-size-in-769);
+    }
+    aside{
+        order: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
+    table td{
+        display: inline-block;
+        margin:5px;
+        font-size: .9rem;
+        font-weight: 500;
+        
+    }
+    .card-info{
+        order: 1;
+        margin-top: 20px;
+    }
+    .crypto-info{
+        order: 1;
+    }
+    .mobile-bank{
+        order: 1;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    footer{
+        font-size: .9rem;
+        height: 100px;
+    }
+    .btns-timer{
+        margin-top: 10px;
+        width: 70%;
+        justify-content: space-between;
+    }
+    .price-content{
+        margin-top: 10px;
+    }
+    .btns-timer .btns button{
+        height: 40px;
+        margin-left: 5px;
+        font-size: .8rem;
+        
+    }
+    .price-content{
+        flex-direction: row;justify-content: space-between;
+        width: 70%;
+    }
+    
+    .btns .pay{
+        padding: 0 30px;
+    }
+    .btns .cancell {
+        padding: 0 10px;
+    }
+    .footer-elements{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 630.001px)and (max-width:768px){
+    .container{
+        width: 90%;
+    }
+    .nav-ul{
+        flex-direction: column;
+        /* width: 100%; */
+        
+    }
+    .nav-li{
+        font-size: .7rem;
+        line-height: 20px;
+        /* width: 100%; */
+        
+        
+    }
+    .nav{
+         
+        width: 50%;
+    }
+    .logo-keshavarzi img{
+        height:50px;
+    }
+    .logo-shaparak img{
+        width: 60px;
+    }
+    header{
+        font-size: .7rem;
+    }
+    .nav-li{
+        border-radius: 5px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .logo-shaparak img{
+        width: 90px;
+    }
+    .logo-keshavarzi img{
+        height:70px;
+    }
+    .main-main{
+        flex-direction: column;
+        
+        align-items: center;
+    }
+    aside{
+        order: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
+    table td{
+        display: inline-block;
+        margin:5px;
+        font-size: .9rem;
+        font-weight: 500;
+        
+    }
+    .card-info{
+        order: 1;
+        margin-top: 20px;
+    }
+    .crypto-info{
+        order: 1;
+    }
+    .mobile-bank{
+        order: 1;
+    }
+    .card-show , .line-side{
+        display: none;
+    }
+    
+}
+
+
+@media (min-width: 768.001px)and (max-width:1145px){
+    
+    .container{
+        width: 700px
+    }
+    .nav-li{
+        font-size: .7rem;
+        line-height: 40px;
+        
+    }
+    .logo-keshavarzi img{
+        height:70px;
+    }
+    .logo-shaparak img{
+        width: 80px;
+    }
+    .logo-text{
+        font-size: .8rem;
+        
+    }
+    main{
+        padding: 25px ;
+    }
+    form{
+        font-size: .8rem;
+    }
+    .card-um input{
+        width: var(--big-input-size-in-769);
+        
+    }
+    .cvv input{
+        width: var(--medium-input-size-in-769);
+        margin-left: 20px;
+    }
+    .ex input{
+        width: 70px;
+    }
+    .ex input::placeholder{
+        text-align: center;
+        font-weight: 400;
+        font-size: .8rem;
+    }
+    .captcha-input{
+        width: var(--medium-input-size-in-769);
+        
+    }
+    .capt img{
+        margin: 0;
+    }
+    #passwordInput{
+        width: 160px;
+    }
+    .code-2ver{
+        padding: 10px 30px;
+        font-size: .8rem;
+        margin-right: 20px;
+        width: 140px;
+        height: 45px;
+    }
+    .phone-email{
+        flex-direction: column;
+    }
+    .email input{
+        margin-bottom: 20px;
+        width: var(--big-input-size-in-769);
+    }
+    .phone input {
+        width: var(--big-input-size-in-769);
+    }
+    aside{
+    width: 270px;
+    height: 550px;
+    }
+
+    .main-footer{
+        font-size: .8rem;
+    }
+    footer{
+        font-size: .9rem;
+        height: 80px;
+    }
+    .btns-timer{
+        margin-top: 10px;
+    }
+    .price-content{
+        margin-top: 10px;
+    }
+    .btns-timer .btns button{
+        height: 40px;
+        margin-left: 20px;
+        font-size: .8rem;
+        
+    }
+    
+    .btns .pay{
+        padding: 0 40px;
+    }
+    .btns .cancell {
+        padding: 0 20px;
+    }
+}
