@@ -1,7 +1,12 @@
-const requestCode = document.querySelector("#code-2ver");
+const totPrice = location.search.substring(1); //query
 
 const payBtns = document.querySelectorAll(".nav-li");
 const payPage = document.querySelectorAll(".pays");
+
+
+
+const requestCode = document.querySelector("#code-2ver");
+
 const price = document.querySelector("#price");
 const currency = document.querySelector("#currency");
 const submit = document.querySelector("#pay");
@@ -42,25 +47,158 @@ const finalContinueBtn = document.querySelector("#doneContinue");
 
 const forWether = document.getElementById("forWether");
 
-const totPrice = location.search.substring(1);
+
 
 const cancel = document.querySelector("#cancell");
 
 const cardShowMonth = document.querySelector(".month-card-show");
 const cardShowYear = document.querySelector(".year-card-show");
 
-rialShow();
 
-function rialShow() {
+const crypToQrCode = document.querySelector("#crypToQrCode")
+const walletAddressToShow = document.querySelector(".wallet-addres")
+
+
+const mobileBankQr = document.querySelector(".mobile-qr")
+const mobileBtn = document.querySelector(".mobile-bank-open-btn")
+
+const webNameInAside = document.querySelector("#web-name")
+
+const trNo = document.querySelector(".trNo")
+const refNo = document.querySelector(".refNo")
+
+
+addDotIn3Digits();
+
+cryptoHandler()
+
+// all document number convert to persian : jquery
+
+$(document).ready(function () {
+   ConvertNumberToPersion();
+});
+
+function ConvertNumberToPersion() {
+   persian = {
+      0: "۰",
+      1: "۱",
+      2: "۲",
+      3: "۳",
+      4: "۴",
+      5: "۵",
+      6: "۶",
+      7: "۷",
+      8: "۸",
+      9: "۹",
+   };
+   function traverse(el) {
+      if (el.nodeType == 3) {
+         var list = el.data.match(/[0-9]/g);
+         if (list != null && list.length != 0) {
+            for (var i = 0; i < list.length; i++)
+               el.data = el.data.replace(list[i], persian[list[i]]);
+         }
+      }
+      for (var i = 0; i < el.childNodes.length; i++) {
+         traverse(el.childNodes[i]);
+      }
+   }
+   traverse(document.body);
+}
+
+
+
+// limit inputs to get just numbers : jquery
+
+$("#cardNumber,#cvv2,#exMonth,#exYear,#passwordInput,#userPhone").keypress(
+   function (e) {
+      if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+   }
+);
+
+
+
+
+
+
+
+// to make a persian numbers in inputs , Except captcha and secondPass 
+inputNumsToPersian(cardNumber, exMonth, exYear, phoneNumber);
+function inputNumsToPersian(...i) {
+   i.forEach((j) => {
+      j.addEventListener("input", (e) => {
+         e.target.value = PersianTools.digitsEnToFa(e.target.value);
+      });
+   });
+}
+
+
+
+
+const randNumForRefTrNo = ()=>{
+   return Math.floor(Math.random() * 100000000)
+}
+
+
+
+function cryptoHandler(){
+   const walletAddress = "19DKsTY7XMThaoo2kNnspXNRBERUk4iLHB"
+   new QRCode(crypToQrCode , walletAddress)
+   walletAddressToShow.innerText = walletAddress
+   walletAddressToShow.addEventListener("click", copyText);
+         
+
+   // function for copying selected text in clipboard
+   function copyText() {
+      selectText();
+      document.execCommand("copy");
+   }
+
+
+   // function for selecting the text of an element based on the event.target (supporting IE)
+   function selectText() {
+      var element = event.target;
+      var range;
+      if (document.selection) {
+         // IE
+         range = document.body.createTextRange();
+         range.moveToElementText(element);
+         range.select();
+      } else if (window.getSelection) {
+         range = document.createRange();
+         range.selectNode(element);
+         window.getSelection().removeAllRanges();
+         window.getSelection().addRange(range);
+      }
+   }
+}
+
+mobileHandler()
+function mobileHandler() {
+   const address = "https://www.bki.ir/"
+   new QRCode(mobileBankQr, address);
+   mobileBtn.addEventListener("click" , ()=>{
+      location.href = address
+   })
+}
+
+
+
+
+function addDotIn3Digits() {
    price.innerText = totPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 savedCardsHandler();
+
+
 function savedCardsHandler() {
+   if (JSON.parse(localStorage.getItem("card")) == null){
+      return
+   }
    const inLocal = JSON.parse(localStorage.getItem("card"));
 
    inLocal.forEach((i) => {
       let divs = document.createElement("div");
-
       const cardnum = i.cardNum;
       const cardMonth = i.cardMonth;
       const cardYear = i.cardYear;
@@ -95,8 +233,7 @@ function showSavedCardHandler() {
             e.currentTarget.childNodes[2].innerText.split("/")[1];
          cardShowYear.innerText =
             e.currentTarget.childNodes[2].innerText.split("/")[0];
-
-         // console.log(e.currentTarget.childNodes[2].innerText.split("/"));  cardShowYear
+            showSavedCardBtnHandler()
       });
    });
 }
@@ -134,8 +271,13 @@ function saveCardInLocal() {
       b.push(a);
       localStorage.setItem("card", JSON.stringify(b));
    } else {
-      inLocal.push(a);
-      localStorage.setItem("card", JSON.stringify(inLocal));
+      inLocal.forEach((i)=>{
+         if(i.cardNum == cardNum && i.cardMonth == cardMonth && i.cardYear == cardYear){
+            return
+         }
+         inLocal.push(a);
+         localStorage.setItem("card", JSON.stringify(inLocal));
+      })
    }
 }
 
@@ -236,7 +378,9 @@ cvv2.addEventListener("change", () => {
    }
 });
 
-showSavedCard.addEventListener("click", () => {
+showSavedCard.addEventListener("click", showSavedCardBtnHandler)
+
+function showSavedCardBtnHandler(){
    if (showSavedCard.style.transform === "rotate(180deg)") {
       cardSaves.style.display = "none";
       showSavedCard.style.transform = "rotate(0deg)";
@@ -244,7 +388,7 @@ showSavedCard.addEventListener("click", () => {
       cardSaves.style.display = "block";
       showSavedCard.style.transform = "rotate(180deg)";
    }
-});
+}
 
 const captchaImg = document.querySelector("#captcha-img");
 
@@ -253,19 +397,10 @@ document.querySelector("#closeCardNumBtn").addEventListener("click", () => {
    inputCardNumLogo.style.visibility = "hidden";
    cardNumError.style.display = "none";
    asideCardLogo.src = "img/banks/keshavarzi.png";
-   cardNumShow.innerHTML = "0000 0000 0000 0000";
+   cardNumShow.innerHTML = PersianTools.digitsEnToFa("0000 0000 0000 0000");
 });
 
-inputNumsToPersian(cardNumber, exMonth, exYear, phoneNumber);
 
-// to make a persian numbers in inputs
-function inputNumsToPersian(...i) {
-   i.forEach((j) => {
-      j.addEventListener("input", (e) => {
-         e.target.value = PersianTools.digitsEnToFa(e.target.value);
-      });
-   });
-}
 
 // add space in 4th index
 
@@ -348,7 +483,7 @@ function bankLogoHandeler() {
       }
    }
 }
-// bank logo change
+
 
 const formatCardNumber = (number) =>
    number.split("").reduce((seed, next, index) => {
@@ -392,7 +527,7 @@ requestCode.addEventListener("click", (e) => {
       smsCode = sendSms();
    }
 });
-// requestBtnActiveTimerHandler();
+
 const disableBtn = (i) => {
    requestCode.disabled = i;
 };
@@ -541,7 +676,6 @@ function sendSms() {
 const priceSave = price.innerText;
 payBtns.forEach((i) => {
    i.addEventListener("click", (ev) => {
-      var eventBtn = ev;
       ev.preventDefault();
       removeActiveBtns();
       i.classList.add("activebtns");
@@ -567,6 +701,7 @@ function currencyHandler(ev) {
    });
 }
 
+
 function removeActiveBtns() {
    payBtns.forEach((i) => {
       i.classList.remove("activebtns");
@@ -577,48 +712,6 @@ function removeActiveContainer() {
    payPage.forEach((i) => {
       i.classList.remove("active-container");
    });
-}
-
-// limit inputs to get just numbers : jquery
-
-$("#cardNumber,#cvv2,#exMonth,#exYear,#passwordInput,#userPhone").keypress(
-   function (e) {
-      if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
-   }
-);
-
-// all document number convert to persian
-
-$(document).ready(function () {
-   ConvertNumberToPersion();
-});
-
-function ConvertNumberToPersion() {
-   persian = {
-      0: "۰",
-      1: "۱",
-      2: "۲",
-      3: "۳",
-      4: "۴",
-      5: "۵",
-      6: "۶",
-      7: "۷",
-      8: "۸",
-      9: "۹",
-   };
-   function traverse(el) {
-      if (el.nodeType == 3) {
-         var list = el.data.match(/[0-9]/g);
-         if (list != null && list.length != 0) {
-            for (var i = 0; i < list.length; i++)
-               el.data = el.data.replace(list[i], persian[list[i]]);
-         }
-      }
-      for (var i = 0; i < el.childNodes.length; i++) {
-         traverse(el.childNodes[i]);
-      }
-   }
-   traverse(document.body);
 }
 
 submit.addEventListener("click", () => {
@@ -651,11 +744,15 @@ const finalData = () => {
 };
 
 function finalHandeler() {
+
+
    console.log(finalData(), "we can fetch this data");
    document.querySelector(".main-main").style.display = "none";
    document.querySelector(".done").style.display = "flex";
    document.querySelector(".footer-elements").style.display = "none";
    document.querySelector(".footer-continue").style.display = "flex";
+   trNo.innerText = `شماره پیگیری :  ${randNumForRefTrNo()}`
+   refNo.innerText = `شماره مرجع :  ${randNumForRefTrNo()}`
 }
 function finalBtn() {
    finalContinueBtn.addEventListener("click", backToShopOk);

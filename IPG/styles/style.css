@@ -650,18 +650,66 @@ footer{
 .crypto-info{
     display: flex;
     flex-direction: column;
-    width: auto;
+    width: 50%;
     align-items: center;
     justify-content: center;
     display: none;
-    
 }
+
+
 .qrCode{
-    margin-bottom: 100px;
+    margin-top: 50px;
+    width:auto;
+    height: auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+
 }
+.qrCode img {
+    width: 150px;
+}
+
+.wallet-addres{
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #4f5c4d27;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    border-radius: 5px;
+    font-size: .9rem;
+}
+
 .mobile-bank{
+    
+    width: auto;
+    
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 500px;
     display: none;
 }
+.mobile-qr{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.mobile-qr img{
+   width: 150px;
+}
+.mobile-bank-open-btn{
+    color: #fff;
+    background-color: var(--green);
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #4f5c4d27;
+    box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
+    border-radius: 5px;
+    text-align: center;
+    /* display: none; */
+}
+
 @media (max-width: 480px){
     .container{
         width: 90%;
@@ -721,6 +769,7 @@ footer{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
     }
     aside{
         order: 0;
@@ -736,6 +785,7 @@ footer{
     .card-info{
         order: 1;
         margin-top: 20px;
+        
     }
     .crypto-info{
         order: 1;
@@ -767,6 +817,10 @@ footer{
     .cvv input{
         width: var(--medium-input-size-in-769);
         margin-left: 20px;
+    }
+    .cvv2-Error{
+        font-size: .6rem;
+        margin-right: 5px;
     }
     .ex input{
         width: 70px;
@@ -925,6 +979,10 @@ footer{
     .cvv input{
         width: var(--medium-input-size-in-769);
         margin-left: 20px;
+    }
+    .cvv2-Error{
+        font-size: .6rem;
+        margin-right: 10px;
     }
     .ex input{
         width: 70px;

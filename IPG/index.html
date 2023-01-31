@@ -20,6 +20,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://cdn.jsdelivr.net/npm/@persian-tools/persian-tools/build/persian-tools.umd.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
       <link rel="icon" href="img/banks/keshavarzi.png" />
       <title>درگاه پرداخت بانک کشاورزی</title>
    </head>
@@ -78,9 +79,9 @@
 
          <main>
             <div class="main-main">
-               <div class="card-info active-container pays" id="payWithCard">
+               <div class="card-info active-container  pays" id="payWithCard">
                   
-                  
+             
                   
 
 
@@ -255,13 +256,13 @@
                      </div>
                   </form>
                </div>
-               <div class="crypto-info pays payWithCrypto" id="payWithCrypto">
-                  <div class="qrCode">test</div>
-                  <div class="wallet-addres">test</div>
+               <div class="crypto-info pays  payWithCrypto" id="payWithCrypto">
+                  <div class="qrCode" id="crypToQrCode"></div>
+                  <div class="wallet-addres"></div>
                </div>
-               <div class="mobile-bank pays pays" id="payWithMobileBank">
-                  <div class="mobile-qr">test</div>
-                  <div class="caption">test</div>
+               <div class="mobile-bank  pays" id="payWithMobileBank">
+                  <div class="mobile-qr"></div>
+                  <div class="mobile-bank-open-btn">موبایل بانک را باز کن</div>
                </div>
                <aside>
                   <div class="card-show">
@@ -286,7 +287,7 @@
                      <table>
                         <tr>
                            <td>پذیرنده</td>
-                           <td id="acceptor-name">ایرانسل</td>
+                           <td id="acceptor-name">reza shop</td>
                         </tr>
                         <tr>
                            <td>شماره پذیرنده</td>
@@ -298,7 +299,7 @@
                         </tr>
                         <tr>
                            <td>آدرس وب سایت</td>
-                           <td id="web-name"><a href="#">irancell.ir</a></td>
+                           <td id="web-name"><a href="#">Local host</a></td>
                         </tr>
                      </table>
                   </div>
@@ -395,11 +396,6 @@
             <button id="doneContinue">برای ادامه کلیک کنید</button>
          </div>
       </footer>
-      <!-- <script>
-         $("#cardNumber").keypress(function (e) {
-            if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
-         });
-      </script> -->
       <script src="app/app.js" type="text/javascript"></script>
    </body>
 </html>
