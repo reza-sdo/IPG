@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#4C9E3A" />
+      <link rel="stylesheet" href="styles/style.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <link
+         rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+      />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@persian-tools/persian-tools/build/persian-tools.umd.js"></script>
+      <link rel="icon" href="img/banks/keshavarzi.png" />
+      <title>درگاه پرداخت بانک کشاورزی</title>
+   </head>
+   <body>
+      
+
+
+      <div class="root container">
+         <header class="header">
+            <div class="header-h">
+               <div class="nav-logo container">
+                  <div class="logo-shaparak">
+                     <img src="img/Shaparak.png" alt="" srcset="" />
+                  </div>
+                  <div class="nav">
+                     <ul class="nav-ul">
+                        <li>
+                           <a
+                              href="#"
+                              class="nav-li activebtns"
+                              id="payWithCard"
+                              >پرداخت با کارت</a
+                           >
+                        </li>
+                        <li>
+                           <a href="#" class="nav-li" id="payWithCrypto"
+                              >پرداخت با ارز دیجیتال</a
+                           >
+                        </li>
+                        <li>
+                           <a href="#" class="nav-li" id="payWithMobileBank"
+                              >پرداخت با موبایل بانک</a
+                           >
+                        </li>
+                     </ul>
+                  </div>
+
+                  <div class="logo">
+                     <div class="logo-text">
+                        <div class="l-name">
+                           <span class="l-name-1">کشاورزی </span
+                           ><span class="l-name-2">پرداخت</span>
+                        </div>
+                        <div class="l-name-phone">
+                           <span class="l-name-phone-1">81301 </span
+                           ><span class="l-name-phone-2"> - 021</span>
+                        </div>
+                     </div>
+                     <div class="logo-keshavarzi">
+                        <img src="img/banks/keshavarzi.png" alt="" srcset="" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+
+         <main>
+            <div class="main-main">
+               <div class="card-info active-container pays" id="payWithCard">
+                  
+                  
+                  
+
+
+
+                  <form action="">
+                     <div class="card-um">
+                        <div class="cardnumText">
+                           <div>شماره کارت</div>
+                           <div class="cardNumError">شماره کارت صحیح نیست</div>
+                        </div>
+                        <div class="inputDiv">
+                           <input
+                              type="text"
+                              name=""
+                              id="cardNumber"
+                              minlength="19"
+                              maxlength="19"
+                              placeholder="0000 0000 0000 0000"
+                              required
+                           />
+                           <span
+                              class="material-symbols-outlined"
+                              id="showSaveCard"
+                           >
+                              expand_more
+                           </span>
+                           <span
+                              class="material-symbols-outlined"
+                              id="closeCardNumBtn"
+                           >
+                              close
+                           </span>
+                           <img src="" alt="" srcset="" id="inputCardNumLogo" />
+                           <div class="cardSaves">
+                              <div id="savedCards"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="cvv-ex">
+                        <div class="cvv">
+                           <div>
+                              <span class="cvv2">CVV2</span>
+                              <span class="cvv2-Error">وروی صحیح نیست</span>
+                           </div>
+
+                           <input
+                              type="password"
+                              id="cvv2"
+                              maxlength="4"
+                              required
+                           />
+                        </div>
+                        <div class="ex">
+                           <div class="ex-text">
+                              <div>تاریخ انقضا</div>
+                              <div class="ex-error">ورودی صحیح نیست</div>
+                           </div>
+                           <input
+                              type="text"
+                              required
+                              class="month-ex"
+                              id="exMonth"
+                              placeholder="ماه"
+                              maxlength="2"
+                              required
+                           />
+                           <span>/</span>
+                           <input
+                              type="text"
+                              required
+                              class="year-ex"
+                              placeholder="سال"
+                              id="exYear"
+                              maxlength="2"
+                           />
+                        </div>
+                     </div>
+                     <div class="captcha">
+                        <div class="captText">
+                           <div>کد امنیتی</div>
+                           <div class="capt-error">کد صحیح نیست</div>
+                        </div>
+
+                        <div class="capt">
+                           <input
+                              type="text"
+                              class="captcha-input"
+                              id="captchaInput"
+                              required
+                           />
+                           <span
+                              class="material-symbols-outlined"
+                              id="captchaRef"
+                           >
+                              autorenew
+                           </span>
+                           <img src="" alt="" srcset="" id="captcha-img" />
+                        </div>
+                     </div>
+                     <div class="ramz">
+                        <div class="passText">
+                           <div>رمز اینترنتی</div>
+                           <div class="passError">رمز صحیح نیست</div>
+                        </div>
+                        <input type="number" id="passwordInput" required />
+                        <button class="code-2ver activebtns ac" id="code-2ver">
+                           درخواست رمز
+                           <span class="2ver-timer"></span>
+                        </button>
+                     </div>
+                     <div class="phone-email">
+                        <div class="email">
+                           <div>
+                              <span>ایمیل</span>
+                           </div>
+
+                           <input type="email" name="email" id="userEmail" />
+                        </div>
+                        <div class="phone">
+                           <div>
+                              <span>شماره موبایل</span>
+                              <span class="phone-error">شماره صحیح نیست</span>
+                           </div>
+
+                           <input type="tel" id="userPhone" />
+                        </div>
+                     </div>
+                     <div class="save-card">
+                        <div class="checkbox-wrapper-12">
+                           <div class="cbx">
+                              <input
+                                 id="cbx-12"
+                                 type="checkbox"
+                                 class="saveCardCheck"
+                              />
+                              <label for="cbx-12"></label>
+                              <svg
+                                 width="15"
+                                 height="14"
+                                 viewbox="0 0 15 14"
+                                 fill="none"
+                              >
+                                 <path d="M2 8.36364L6.23077 12L13 2"></path>
+                              </svg>
+                           </div>
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              version="1.1"
+                           >
+                              <defs>
+                                 <filter id="goo-12">
+                                    <fegaussianblur
+                                       in="SourceGraphic"
+                                       stddeviation="4"
+                                       result="blur"
+                                    ></fegaussianblur>
+                                    <fecolormatrix
+                                       in="blur"
+                                       mode="matrix"
+                                       values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                                       result="goo-12"
+                                    ></fecolormatrix>
+                                    <feblend
+                                       in="SourceGraphic"
+                                       in2="goo-12"
+                                    ></feblend>
+                                 </filter>
+                              </defs>
+                           </svg>
+                        </div>
+                        <div class="save-card-text">کارت ذخیره شود</div>
+                     </div>
+                  </form>
+               </div>
+               <div class="crypto-info pays payWithCrypto" id="payWithCrypto">
+                  <div class="qrCode">test</div>
+                  <div class="wallet-addres">test</div>
+               </div>
+               <div class="mobile-bank pays pays" id="payWithMobileBank">
+                  <div class="mobile-qr">test</div>
+                  <div class="caption">test</div>
+               </div>
+               <aside>
+                  <div class="card-show">
+                     <img
+                        src="img/banks/keshavarzi.png"
+                        alt=""
+                        srcset=""
+                        id="banks"
+                        class="banks"
+                     />
+
+                     <div dir="ltr" class="card-num-show" id="cardNumShow">
+                        0000 0000 0000 0000
+                     </div>
+                     <div class="ex-card-show">
+                        <span class="month-card-show">00</span><span>/</span>
+                        <span class="year-card-show">00</span>
+                     </div>
+                  </div>
+                  <div class="line-side"></div>
+                  <div class="acceptor">
+                     <table>
+                        <tr>
+                           <td>پذیرنده</td>
+                           <td id="acceptor-name">ایرانسل</td>
+                        </tr>
+                        <tr>
+                           <td>شماره پذیرنده</td>
+                           <td id="acceptor-no">4554386</td>
+                        </tr>
+                        <tr>
+                           <td>شماره ترمینال</td>
+                           <td id="terminal-no">4554386</td>
+                        </tr>
+                        <tr>
+                           <td>آدرس وب سایت</td>
+                           <td id="web-name"><a href="#">irancell.ir</a></td>
+                        </tr>
+                     </table>
+                  </div>
+               </aside>
+            </div>
+            <div class="done">
+               <div class="msvg">
+                  <svg
+                     version="1.1"
+                     id="Capa_1"
+                     xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     viewBox="0 0 50 50"
+                     xml:space="preserve"
+                  >
+                     <circle style="fill: #4c9e3a" cx="25" cy="25" r="25" />
+                     <polyline
+                        style="
+                           fill: none;
+                           stroke: #ffffff;
+                           stroke-width: 2;
+                           stroke-linecap: round;
+                           stroke-linejoin: round;
+                           stroke-miterlimit: 10;
+                        "
+                        points="
+	38,15 22,33 12,25 "
+                     />
+                  </svg>
+               </div>
+               <h2>پرداخت باموفقیت انجام شد</h2>
+               <h3 class="trNo">شماره پیگیری: 33</h3>
+               <h3 class="refNo">شماره مرجع: 33</h3>
+               <h3 id="forWether"></h3>
+            </div>
+            <div class="line-main"><div class="line-main-1"></div></div>
+            <div class="main-footer">
+               <ul>
+                  <li>
+                     رمز پویا، رمز یکبار مصرفی است که به جای رمز دوم کارت
+                     استفاده میشود.
+                  </li>
+                  <li>
+                     <b>مرحله اول</b>- براساس دستورالعمل بانک صادرکننده کارت
+                     خود، نسبت به فعالسازی رمز پویا اقدام نمایید.
+                  </li>
+                  <li>
+                     <b>مرحله دوم</b>- رمز پویا را بر اساس روش اعلامی از طرف
+                     بانک صادرکننده کارت، به یکی از روشهای زیر دریافت کنید.
+                  </li>
+                  <li>
+                     1- دریافت از طریق برنامه کاربردی بانک، اینترنت بانک و یا
+                     موبایل بانک
+                  </li>
+                  <li>2- دریافت از طریق کد USSD بانک صادرکننده کارت شما</li>
+                  <li>
+                     3- دریافت از طریق زدن دکمه ی "دریافت رمز پویا" در درگاه
+                     پرداخت اینترنتی
+                  </li>
+                  <li>
+                     <b>مرحله سوم</b>- پس از دریافت رمز به یکی از روشهای فوق،
+                     رمز پویای دریافت شده را در محل تعیین شده برای "رمز دوم"
+                     وارد نمایید و سپس مابقی اطلاعات را تکمیل نمایید.
+                  </li>
+                  <br /><br />
+               </ul>
+            </div>
+         </main>
+      </div>
+      <footer class="footer">
+         <div class="footer-elements container">
+            <div class="btns-timer">
+               <div class="btns">
+                  <button class="pay" id="pay">پرداخت</button>
+                  <button class="cancell" id="cancell">انصراف</button>
+               </div>
+               <div class="timer">
+                  <span class="timer-s sec-1">0</span>
+                  <span class="timer-s sec-2">0</span>
+                  <span>:</span>
+                  <span class="timer-s min-2">2</span>
+                  <span class="timer-s min-1">1</span>
+               </div>
+            </div>
+            <div class="price-content">
+               <div class="text-for-price">مبلغ قابل پرداخت</div>
+               <div class="price-to-show">
+                  <span class="currency" id="currency">ریال </span>
+                  <span class="price" id="price"></span>
+               </div>
+            </div>
+         </div>
+         <div class="footer-continue">
+            <button id="doneContinue">برای ادامه کلیک کنید</button>
+         </div>
+      </footer>
+      <!-- <script>
+         $("#cardNumber").keypress(function (e) {
+            if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+         });
+      </script> -->
+      <script src="app/app.js" type="text/javascript"></script>
+   </body>
+</html>

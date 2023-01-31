@@ -4,7 +4,6 @@ const payBtns = document.querySelectorAll(".nav-li");
 const payPage = document.querySelectorAll(".pays");
 const price = document.querySelector("#price");
 const currency = document.querySelector("#currency");
-
 const submit = document.querySelector("#pay");
 
 const cardNumber = document.querySelector("#cardNumber");
@@ -12,6 +11,8 @@ const cardNumber = document.querySelector("#cardNumber");
 const closeBtn = document.querySelector("#closeCardNumBtn");
 
 const cardSaves = document.querySelector(".cardSaves");
+const savedCards = document.querySelector("#savedCards");
+
 const showSavedCard = document.querySelector("#showSaveCard");
 
 const inputCardNumLogo = document.getElementById("inputCardNumLogo");
@@ -22,12 +23,12 @@ const cvv2 = document.getElementById("cvv2");
 
 const exMonth = document.getElementById("exMonth");
 const exYear = document.getElementById("exYear");
+const exError = document.querySelector(".ex-error");
 
 const cardNumShow = document.querySelector("#cardNumShow");
 
 const cardNumError = document.querySelector(".cardNumError");
 const cvv2Error = document.querySelector(".cvv2-Error");
-const exError = document.querySelector(".ex-error");
 
 const captchaInput = document.querySelector("#captchaInput");
 
@@ -37,28 +38,105 @@ const saveCardCheck = document.querySelector(".saveCardCheck");
 
 const secondPassInp = document.querySelector("#passwordInput");
 
-const finalContinueBtn = document.querySelector("doneContinue");
+const finalContinueBtn = document.querySelector("#doneContinue");
 
-const forWether = document.getElementById("forWether")
+const forWether = document.getElementById("forWether");
+
+const totPrice = location.search.substring(1);
+
+const cancel = document.querySelector("#cancell");
+
+const cardShowMonth = document.querySelector(".month-card-show");
+const cardShowYear = document.querySelector(".year-card-show");
+
+rialShow();
+
+function rialShow() {
+   price.innerText = totPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+savedCardsHandler();
+function savedCardsHandler() {
+   const inLocal = JSON.parse(localStorage.getItem("card"));
+
+   inLocal.forEach((i) => {
+      let divs = document.createElement("div");
+
+      const cardnum = i.cardNum;
+      const cardMonth = i.cardMonth;
+      const cardYear = i.cardYear;
+      const logoSrc = i.logoSrc;
+      const fData = `<img src="${logoSrc}"/><span>${cardnum}</span><span>${cardYear}/${cardMonth}</span>`;
+      divs.innerHTML = fData;
+      savedCards.appendChild(divs);
+   });
+}
+
+showSavedCardHandler();
+
+function showSavedCardHandler() {
+   savedCards.childNodes.forEach((i) => {
+      i.addEventListener("click", (e) => {
+         console.log(e.currentTarget.childNodes[2]);
+         inputCardNumLogo.src = e.currentTarget.childNodes[0].src;
+
+         inputCardNumLogo.src,
+            (asideCardLogo.src = e.currentTarget.childNodes[0].src);
+         inputCardNumLogo.style.position = "relative";
+         inputCardNumLogo.style.visibility,
+            (asideCardLogo.style.visibility = "visible");
+
+         cardNumber.value = e.currentTarget.childNodes[1].innerText;
+         cardNumShow.innerText = e.currentTarget.childNodes[1].innerText;
+
+         exMonth.value = e.currentTarget.childNodes[2].innerText.split("/")[1];
+         exYear.value = e.currentTarget.childNodes[2].innerText.split("/")[0];
+
+         cardShowMonth.innerText =
+            e.currentTarget.childNodes[2].innerText.split("/")[1];
+         cardShowYear.innerText =
+            e.currentTarget.childNodes[2].innerText.split("/")[0];
+
+         // console.log(e.currentTarget.childNodes[2].innerText.split("/"));  cardShowYear
+      });
+   });
+}
+
+console.log(typeof savedCards.children);
+// getBtcPrice()      // 100request in month
+function getBtcPrice() {
+   const key = "freeLMrTTaNux2WcldNslnH0lksXx7F8";
+   const url = `http://api.navasan.tech/latest/?api_key=${key}&item=btc`;
+
+   fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+         let btcPrice = data.btc.value;
+         test(btcPrice);
+         console.log(btcPrice);
+      });
+}
+let btc;
+function test(i) {
+   btc = totPrice / i;
+}
 
 /////////////////////////////////////////////////////////
-console.log(saveCardCheck);
-saveCardCheck.addEventListener("click", (e) => {
-   console.log(saveCardCheck.checked);
-   if (saveCardCheck.checked) {
-      saveCardInLocal();
-   }
-});
 
 function saveCardInLocal() {
+   const inLocal = JSON.parse(localStorage.getItem("card"));
    const cardNum = PersianTools.digitsFaToEn(cardNumber.value);
    const cardMonth = PersianTools.digitsFaToEn(exMonth.value);
    const cardYear = PersianTools.digitsFaToEn(exYear.value);
    const logoSrc = inputCardNumLogo.src;
    const a = {cardNum, cardMonth, cardYear, cardYear, logoSrc};
-   const b = [];
-   b.push(a);
-   // localStorage.setItem("card",JSON.stringify(b))
+   if (localStorage.getItem("card") === null) {
+      const b = [];
+      b.push(a);
+      localStorage.setItem("card", JSON.stringify(b));
+   } else {
+      inLocal.push(a);
+      localStorage.setItem("card", JSON.stringify(inLocal));
+   }
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -72,12 +150,15 @@ function pageTimer() {
    const accTime = `${min1.innerHTML}${min2.innerHTML} : ${sec2.innerHTML}${sec1.innerHTML}`;
    let min = +accTime.split(":")[0];
    let sec = +accTime.split(":")[1];
-   let time;
-   function timer() {
+
+   const timerPage = setInterval(() => {
       if (sec == 00) {
          if (min == 0 && sec == 0) {
-            clearInterval();
-
+            clearInterval(timerPage);
+            timeUp();
+            setTimeout(() => {
+               location.href = "../index.html?304";
+            }, 10000);
             return;
          }
          min = min - 1;
@@ -90,14 +171,12 @@ function pageTimer() {
       sec2.innerHTML = PersianTools.digitsEnToFa(String(sec)[0]);
       min1.innerHTML = PersianTools.digitsEnToFa(String(min)[0]);
       min2.innerHTML = PersianTools.digitsEnToFa(String(min)[1]);
-   }
-
-   setInterval(timer, 1000);
+   }, 1000);
 }
 
-function back(params) {}
-
-document.querySelector("#captchaRef").addEventListener("click", () => {
+function back() {}
+document.querySelector("#captchaRef").addEventListener("click", (e) => {
+   e.target.style.transform == "rotate(180deg)"?e.target.style.transform = "rotate(360deg)":e.target.style.transform = "rotate(180deg)"
    makeCaptcha();
 });
 
@@ -111,7 +190,6 @@ exYear.addEventListener("change", () => {
 });
 
 exYear.addEventListener("keyup", () => {
-   const cardShowYear = document.querySelector(".year-card-show");
    cardShowYear.innerHTML = exYear.value;
 
    if (cardShowYear.innerHTML.length == 1) {
@@ -138,7 +216,6 @@ exMonth.addEventListener("change", (e) => {
 });
 
 exMonth.addEventListener("keyup", () => {
-   const cardShowMonth = document.querySelector(".month-card-show");
    cardShowMonth.innerHTML = exMonth.value;
 
    if (cardShowMonth.innerHTML.length == 1) {
@@ -239,10 +316,13 @@ const bankLogos = {
    639599: "ghavamin",
 };
 
-cardNumber.addEventListener("keyup", (e) => {
+cardNumber.addEventListener("input", (e) => {
    cardNumber.value = formatCardNumber(cardNumber.value.replaceAll(" ", ""));
    bankLogoHandeler();
-   cardNumShow.innerHTML = cardNumber.value;
+   // cardNumShow.innerHTML=cardNumber.value
+   cardNumShow.innerHTML == ""
+      ? (cardNumShow.innerHTML = "0000 0000 0000 0000")
+      : (cardNumShow.innerHTML = cardNumber.value);
 });
 
 function perNumToEn(i) {
@@ -475,7 +555,7 @@ function currencyHandler(ev) {
       if (target == i.id) {
          if (target === "payWithCrypto") {
             currency.innerHTML = "BTC";
-            price.innerHTML = "0.00004";
+            price.innerHTML = btc.toFixed(8);
          } else {
             currency.innerHTML = "ریال";
             price.innerText = priceSave;
@@ -541,11 +621,7 @@ function ConvertNumberToPersion() {
    traverse(document.body);
 }
 
-// console.log(sendSms());
-
 submit.addEventListener("click", () => {
-   // const code = sendSms()
-
    if (
       cardNumCheck() &&
       cvv2Check() &&
@@ -554,8 +630,13 @@ submit.addEventListener("click", () => {
       phonCheck() &&
       secPassCheck()
    ) {
+      if (saveCardCheck.checked) {
+         saveCardInLocal();
+      }
+
       finalHandeler();
-      wether()
+      wether();
+      finalBtn();
    }
 });
 
@@ -576,10 +657,9 @@ function finalHandeler() {
    document.querySelector(".footer-elements").style.display = "none";
    document.querySelector(".footer-continue").style.display = "flex";
 }
-function finalBtn(params) {
-   finalContinueBtn.addEventListener("click", () => {});
+function finalBtn() {
+   finalContinueBtn.addEventListener("click", backToShopOk);
 }
-
 function wether() {
    const key = "f2bbc52e18cabb66a5da6dacf22dda03";
 
@@ -588,9 +668,41 @@ function wether() {
    )
       .then((res) => res.json())
       .then((data) => {
-         const {main, name, sys, weather} = data; // for temp use main 
+         const {main, name, sys, weather} = data; // for temp use main
          // const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0]["icon"]}.svg`; // for get wether icon
          const temp = `${main.temp}c`;
          forWether.innerHTML = ` دمای هوای تهران :${temp}  `;
       });
 }
+function backToShopOk() {
+   location.href = "../index.html?200";
+}
+
+function backToShopNotOk() {
+   Swal.fire({
+      title: "آیا مطمئن هستید؟",
+      showDenyButton: true,
+      confirmButtonText: "بله",
+      confirmButtonColor: "#4C9E3A",
+
+      denyButtonText: `خیر`,
+   }).then((result) => {
+      if (result.isConfirmed) {
+         location.href = "../index.html?304";
+      }
+   });
+}
+
+function timeUp() {
+   Swal.fire({
+      title: "زمان شما به پایان رسید",
+      confirmButtonText: "ادامه",
+      confirmButtonColor: "#4C9E3A",
+   }).then((result) => {
+      if (result.isConfirmed) {
+         location.href = "../index.html?304";
+      }
+   });
+   return;
+}
+cancel.addEventListener("click", backToShopNotOk);
