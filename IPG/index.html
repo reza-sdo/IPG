@@ -8,13 +8,6 @@
       <link rel="stylesheet" href="styles/style.css" />
       <link
          rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-         crossorigin="anonymous"
-         referrerpolicy="no-referrer"
-      />
-      <link
-         rel="stylesheet"
          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
       />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -25,10 +18,7 @@
       <title>درگاه پرداخت بانک کشاورزی</title>
    </head>
    <body>
-      
-
-
-      <div class="root container">
+      <div class="container">
          <header class="header">
             <div class="header-h">
                <div class="nav-logo container">
@@ -79,13 +69,7 @@
 
          <main>
             <div class="main-main">
-               <div class="card-info active-container  pays" id="payWithCard">
-                  
-             
-                  
-
-
-
+               <div class="card-info active-container pays" id="payWithCard">
                   <form action="">
                      <div class="card-um">
                         <div class="cardnumText">
@@ -94,7 +78,7 @@
                         </div>
                         <div class="inputDiv">
                            <input
-                              type="text"
+                              type="tel"
                               name=""
                               id="cardNumber"
                               minlength="19"
@@ -140,7 +124,7 @@
                               <div class="ex-error">ورودی صحیح نیست</div>
                            </div>
                            <input
-                              type="text"
+                              type="tel"
                               required
                               class="month-ex"
                               id="exMonth"
@@ -150,7 +134,7 @@
                            />
                            <span>/</span>
                            <input
-                              type="text"
+                              type="tel"
                               required
                               class="year-ex"
                               placeholder="سال"
@@ -186,7 +170,7 @@
                            <div>رمز اینترنتی</div>
                            <div class="passError">رمز صحیح نیست</div>
                         </div>
-                        <input type="number" id="passwordInput" required />
+                        <input type="tel" id="passwordInput" required />
                         <button class="code-2ver activebtns ac" id="code-2ver">
                            درخواست رمز
                            <span class="2ver-timer"></span>
@@ -256,11 +240,11 @@
                      </div>
                   </form>
                </div>
-               <div class="crypto-info pays  payWithCrypto" id="payWithCrypto">
+               <div class="crypto-info pays payWithCrypto" id="payWithCrypto">
                   <div class="qrCode" id="crypToQrCode"></div>
                   <div class="wallet-addres"></div>
                </div>
-               <div class="mobile-bank  pays" id="payWithMobileBank">
+               <div class="mobile-bank pays" id="payWithMobileBank">
                   <div class="mobile-qr"></div>
                   <div class="mobile-bank-open-btn">موبایل بانک را باز کن</div>
                </div>
