@@ -134,7 +134,7 @@ function inputNumsToPersian(...i) {
 }
 getBtcPrice();
 function getBtcPrice() {
-   const key = "freeLMrTTaNux2WcldNslnH0lksXx7F8";
+   const key = "free0EC6JaXM8i7G7e9toeu7fNZIumKw";
    const url = `http://api.navasan.tech/latest/?api_key=${key}&item=btc`;
 
    fetch(url)
@@ -142,7 +142,6 @@ function getBtcPrice() {
       .then((data) => {
          let btcPrice = data.btc.value;
          test(btcPrice);
-         console.log(btcPrice);
       });
 }
 let btc;
@@ -210,7 +209,6 @@ function mobileHandler() {
 function showSavedCardBoxHandler() {
    savedCards.childNodes.forEach((i) => {
       i.addEventListener("click", (e) => {
-         console.log(e.currentTarget.childNodes[2]);
          inputCardNumLogo.src = e.currentTarget.childNodes[0].src;
 
          asideCardLogo.src = e.currentTarget.childNodes[0].src;
@@ -233,7 +231,6 @@ function showSavedCardBoxHandler() {
    });
 }
 
-/////////////////////////////////////////////////////////
 
 function saveCardInLocal() {
    const inLocal = JSON.parse(localStorage.getItem("card"));
@@ -468,7 +465,7 @@ let vC;
 const makeCaptcha = () => {
    const captchaPicture = {
       "1.png": "36nx4",
-      "2.png": "36wz5",
+      "2.png": "36w25",
       "3.png": "37d52",
       "4.png": "37ep6",
       "5.png": "38n57",
@@ -497,9 +494,7 @@ function requestBtnActiveTimerHandler() {
    requestCode.innerHTML = `
    ۰۲:۰۰
    `;
-   console.log(requestCode.innerText);
    reversTimer(requestCode);
-   console.log("in");
    disableBtn(true);
 }
 // change request code btn to enable
@@ -511,7 +506,6 @@ function disableTimerRequestBtn() {
    requestCode.innerHTML = `
    درخواست رمز
    `;
-   console.log(requestCode.innerText);
    disableBtn(false);
    return;
 }
@@ -525,14 +519,12 @@ function reversTimer(ele) {
    const timer = setInterval(() => {
       if (sec == 00) {
          if (min == 0 && sec == 0) {
-            console.log("df");
             disableTimerRequestBtn();
             clearInterval(timer);
             return;
          }
          min = min - 1;
          sec = 60;
-         console.log(min);
          min = min < 10 ? `0${min}` : min;
       }
       sec -= 1;
@@ -548,7 +540,6 @@ function reversTimer(ele) {
 function cardNumCheck() {
    if (cardNumber.value.length < 19 || cardNumError.style.display === "block") {
       cardNumError.style.display = "block";
-      console.log("ok card");
       return false;
    } else {
       cardNumError.style.display = "none";
@@ -560,7 +551,6 @@ function cardNumCheck() {
 function cvv2Check() {
    if (cvv2Error.style.display === "inline-block" || cvv2.value.length === 0) {
       cvv2Error.style.display = "inline-block";
-      console.log("cco");
       return false;
    } else {
       cvv2Error.style.display = "none";
@@ -626,9 +616,9 @@ function sendSms() {
    const text = `رمز شما:  code:${code}`;
    const url = `https://api.sms.ir/v1/send?username=${userName}&password=${apiKey}&line=${line}&mobile=${phonNum}&text=${text}`;
 
-   // fetch(url)
-   //    .then((res) => res.json())
-   //    .then((data) => console.log(data)); // come back data
+   fetch(url)
+      .then((res) => res.json())
+      .then((data) => console.log(data)); // come back data
 
    return code;
 }
@@ -645,7 +635,6 @@ requestCode.addEventListener("click", (e) => {
       cpatCheck(vC) &&
       phonCheck()
    ) {
-      console.log("okookoko");
       requestBtnActiveTimerHandler();
       smsCode = sendSms();
    }
@@ -677,7 +666,6 @@ function currencyHandler(ev) {
          }
          removeActiveContainer();
          i.classList.add("active-container");
-         console.log(i.id);
       }
    });
 }

@@ -84,6 +84,7 @@
                               minlength="19"
                               maxlength="19"
                               placeholder="0000 0000 0000 0000"
+                              autocomplete="off"
                               required
                            />
                            <span
@@ -115,6 +116,7 @@
                               type="password"
                               id="cvv2"
                               maxlength="4"
+                              autocomplete="off"
                               required
                            />
                         </div>
@@ -130,6 +132,7 @@
                               id="exMonth"
                               placeholder="ماه"
                               maxlength="2"
+                              autocomplete="off"
                               required
                            />
                            <span>/</span>
@@ -139,6 +142,7 @@
                               class="year-ex"
                               placeholder="سال"
                               id="exYear"
+                              autocomplete="off"
                               maxlength="2"
                            />
                         </div>
@@ -170,7 +174,12 @@
                            <div>رمز اینترنتی</div>
                            <div class="passError">رمز صحیح نیست</div>
                         </div>
-                        <input type="tel" id="passwordInput" required />
+                        <input
+                           type="tel"
+                           id="passwordInput"
+                           autocomplete="off"
+                           required
+                        />
                         <button class="code-2ver activebtns ac" id="code-2ver">
                            درخواست رمز
                            <span class="2ver-timer"></span>
