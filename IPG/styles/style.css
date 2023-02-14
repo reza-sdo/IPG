@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
 @font-face {
     font-family: "parastoo";
     src: url(../font/IRANSANS/IRAN\ Sans\ Light.ttf);
@@ -163,7 +163,7 @@ main{
 .main-main{
     display: flex;
     justify-content: space-between;
-    /* display: none; */
+    
 }
 .done{
     height: 500px;
@@ -289,7 +289,6 @@ aside{
     display: flex;
     justify-content: space-between;
     direction: ltr;
-    /* border-bottom: 1px solid #3f4e3c5e; */
     height: 40px;
     padding: 4px 30px;
     font-size: .8rem;
@@ -344,11 +343,10 @@ aside{
 }
 .captcha{
     margin: 20px 0;
-    /* background-color: #4C9E3A; */
+    
 }
 .capt{
     display: flex;
-    /* background-color: #4C9E3A; */
 }
 .captText{
     display: flex;
@@ -734,7 +732,6 @@ footer{
     box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.151);
     border-radius: 5px;
     text-align: center;
-    /* display: none; */
 }
 
 @media (max-width: 480px){
